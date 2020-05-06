@@ -1,6 +1,5 @@
 FROM envoyproxy/envoy:v1.14.1
 
-RUN apt-get update
-RUN apt install -y curl
-
-CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml --service-cluster front-proxy -l debug
+RUN apt-get update && apt-get -q install -y \
+    curl
+CMD /usr/local/bin/envoy -c /etc/front-envoy.yaml --service-cluster front-proxy
