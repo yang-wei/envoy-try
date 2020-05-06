@@ -31,7 +31,7 @@ static_resources:
             typed_config: {}
   clusters:
   - name: service1
-    connect_timeout: 0.25s
+    connect_timeout: 5.0s
     type: strict_dns
     lb_policy: round_robin
     http2_protocol_options: {}
@@ -43,9 +43,9 @@ static_resources:
             address:
               socket_address:
                 address: service1
-                port_value: 80
+                port_value: 9001
   - name: service2
-    connect_timeout: 0.25s
+    connect_timeout: 5.0s
     type: strict_dns
     lb_policy: round_robin
     http2_protocol_options: {}
@@ -57,7 +57,7 @@ static_resources:
             address:
               socket_address:
                 address: service2
-                port_value: 80
+                port_value: 9001
 admin:
   access_log_path: "/dev/null"
   address:

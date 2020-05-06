@@ -21,10 +21,12 @@ services:
       dockerfile: Dockerfile-service
     volumes:
       - ./service-envoy.yaml:/etc/service-envoy.yaml
+    networks:
+      envoymesh:
+        aliases:
+          - service1
     environment:
       - SERVICE_NAME=1
-    expose:
-      - "80"
 
   service2:
     build:
@@ -38,8 +40,6 @@ services:
           - service2
     environment:
       - SERVICE_NAME=2
-    expose:
-      - "80"
 
 networks:
   envoymesh: {}
