@@ -1,3 +1,4 @@
 #!/bin/sh
-python3 /code/service.py &
+go run /code/service.go &
 envoy -c /etc/service-envoy.yaml --service-cluster service${SERVICE_NAME}
+
