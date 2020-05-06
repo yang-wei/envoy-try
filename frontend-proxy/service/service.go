@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-
 	serviceName := os.Getenv("SERVICE_NAME")
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, fmt.Sprintf("route: %s, serviceName: %s", r.URL.Path, serviceName))
+		log := fmt.Sprintf("route: %s, serviceName: %s", r.URL.Path, serviceName)
+		fmt.Println(log)
+		fmt.Fprint(w, log)
 	})
-
-	http.ListenAndServe(":8001", nil)
+	fmt.Println("Listen on port 9001")
+	http.ListenAndServe(":9001", nil)
 }
