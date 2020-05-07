@@ -6,13 +6,12 @@ services:
       dockerfile: Dockerfile-frontenvoy
     volumes:
       - ./front-envoy.yaml:/etc/front-envoy.yaml
+      - ./certs/:/etc/certs/
     networks:
       - envoymesh
-    expose:
-      - "80"
-      - "8001"
     ports:
-      - "8000:80"
+      - "80:80"
+      - "443:8443"
       - "8001:8001"
 
   service1:
